@@ -1,8 +1,8 @@
 <?php
 $var = $_SERVER['DOCUMENT_ROOT'];
 
-  define('HTTP_SERVER', 'http://www.vartanex.in');
-  define('HTTPS_SERVER', 'http://www.vartanex.in');
+  define('HTTP_SERVER', 'https://www.vartanex.com');
+  define('HTTPS_SERVER', 'https://www.vartanex.com');
   define('ENABLE_SSL', false);
   define('HTTP_COOKIE_DOMAIN', '');
   define('HTTPS_COOKIE_DOMAIN', '');
