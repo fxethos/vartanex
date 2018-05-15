@@ -10,7 +10,7 @@
         <p class="tt"><img src="images/thumbs.png" alt="img"/> <span>Use a complex alpha-numeric password for Vartnex that is not common with other accounts like Facebook and Gmail. </span></p>
         <p class="tt"><img src="images/thumbs.png" alt="img"/> <span>VartanEx will never ask you for your password or two-factor pin. Never give it out to anyone. </span></p>
         <p class="tt"><img src="images/thumbs.png" alt="img"/> <span>For any news and changes with VartanEx, only follow official channels. </span></p>
-        <p class="tt"><img src="images/thumbs.png" alt="img"/> <span>Make sure the email you receive comes from <a href="mailto:hello@vartanex.in" style="color:#1c947f ">hello@vartanex.in</a> and not from any other source.</span> </p>
+        <p class="tt"><img src="images/thumbs.png" alt="img"/> <span>Make sure the email you receive comes from <a href="mailto:hello@vartanex.com" style="color:#1c947f ">hello@vartanex.com</a> and not from any other source.</span> </p>
         <p class="tt">If you have any further questions about our security, <a href="submit-request.php" style="color:#1c947f ">contact our support team.</a></p>
     </div>
     <div class="spacer-1">&nbsp;</div>

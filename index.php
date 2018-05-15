@@ -207,7 +207,7 @@ label.error {float: none !important;color: #002720 !important;font-weight: 500 !
 input.error, select.error{ border:2px solid #002720 !important; }
 </style>
 <div class="main-content">
-    <section id="about-us" class="overview-block-ptb">
+    <section id="about-us" class="overview-block-ptb" style="padding: 50px 0px 0px 0px;">
         <div class="container">
         <div style="margin:15px 0; min-height:200px"> 
         <div id="responsecontainer1">
@@ -217,7 +217,7 @@ input.error, select.error{ border:2px solid #002720 !important; }
         <script type="text/javascript">
 			$(document).ready(function(){
 				var refreshId1 = setInterval(function () {
-				$("#responsecontainer1").load("quotes.php");},22000);
+				$("#responsecontainer1").load("quotes.php");},180000);
 				$.ajaxSetup({ cache:false});
 			});
         </script>       
@@ -236,7 +236,7 @@ input.error, select.error{ border:2px solid #002720 !important; }
                 });
                 </script>
                 <iframe name="Live_Rates" title="Live Rates" class="live-rates" style="margin: 0px; padding: 0px; border: medium none; width: 100%; display: block;" id="autoreloadfooter"></iframe>
-            </div><?php */?>                        
+            </div>
             <div class="row"> 
                 <div class="col-lg-12"><a href="trader-guide.php#order-book" style="text-decoration: underline;"> What is this? <i class="fa fa-info-circle" style="font-size:16px"></i></a></div>
                 <div class="col-sm-12">&nbsp;</div>
@@ -431,7 +431,7 @@ input.error, select.error{ border:2px solid #002720 !important; }
                         </table>
                 	</div>
                 </div>                
-                </div>
+                </div><?php */?>                        
         </div>
     </section>
     <!-- Feature END -->

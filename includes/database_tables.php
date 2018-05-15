@@ -12,4 +12,5 @@ $prefix = "vart_";
 define('TABLE_GETAPP_MOBILE', $prefix.'getapp_mobile');//ok
 define("TABLE_FAQ_CATEGORIES", $prefix."faq_categories");
 define("TABLE_FAQ", $prefix."faq");
+define("TABLE_CRYPTO_VALUE", $prefix."crypto_value");
 ?>

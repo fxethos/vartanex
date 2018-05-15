@@ -33,7 +33,7 @@
                         </div>
                         <div class="fancy-content">
                             <h5 class="">Mail</h5>
-                            <a href="mailto:hello@vartanex.in" style="color: #fff;"><span class="lead">hello@vartanex.in</span></a>
+                            <a href="mailto:hello@vartanex.com" style="color: #fff;"><span class="lead">hello@vartanex.com</span></a>
                             <p class="iq-mb-0">24 X 7 online support</p>
                         </div>
                     </div>

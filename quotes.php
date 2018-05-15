@@ -1,46 +1,96 @@
 <?php
-error_reporting('E_ERROR | E_WARNING | E_PARSE');
-ob_start();
-session_start();
-$opts = array('http'=>array('method'=>"GET", 'header'=>"User-Agent: lashaparesha api script\r\n"));
-$context = stream_context_create($opts);
-$url = 'https://koinex.in/api/ticker';
-$file = file_get_contents($url, false, $context);
-$response = json_decode($file);
-//print_r($response->prices);
-/*
-echo 'BTC/INR: '.$response->prices->BTC;
-echo "<br />";
-echo 'ETH/INR: '.$response->prices->ETH;
-echo "<br />";
-echo 'XRP/INR: '.$response->prices->XRP;
-echo "<br />";
-echo 'LTC/INR: '.$response->prices->LTC;
-echo "<br />";
-echo 'BCH/INR: '.$response->prices->BCH;
-echo "<br />";
-echo 'GNT/INR: '.$response->prices->GNT;
-echo "<br />";
-echo 'MIOTA/INR: '.$response->prices->MIOTA;
-echo "<br />";
-echo 'OMG/INR: '.$response->prices->OMG;*/
+require_once('includes/application_top.php');
+error_reporting(E_ALL | E_STRICT | E_WARNING);
+$Cryptoval = $OSCOM_Db->prepare('select SQL_CALC_FOUND_ROWS symbol, price, buy_price, sell_price from :table_'.TABLE_CRYPTO_VALUE.' WHERE name="Ethereum" ORDER BY symbol ASC');
+$Cryptoval->execute();
 ?>
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-
 <style>
-.box-set{float:left; margin:5px 2px; text-align:center; padding:0px 25px 12px; width:19%; font-family: 'PT Sans', sans-serif;  background:url(images/ap-bg.jpg) no-repeat center}
-.box-set img{ line-height:0}
-.box-set h1{font-size:20px; margin-bottom:0px; font-weight:500; margin-top:0; color:#30ad8b; line-height:15px}
-.box-set h5{font-size:20px; margin:5px 0 10px; font-weight:400; color:#333; line-height:20px }
-.box-set a{ color:#011b16; text-decoration:none; font-size:14px; width:auto !important; margin:0; padding:5px 30px}
-.box-set a:hover{ color:#037662}
-.btn-2{background:#30ad8b; border-radius:15px 15px 0 0; color:#fff !important; padding:5px 15px; margin-top:10px}
-.btn:hover{background:#30ad8b ; border-radius:15px 15px 0 0; color:#fff !important; padding:5px 15px}
-
-.btn-1{background:#ccc; border-radius:15px 15px 0 0; color:#fff !important; padding:5px 15px; margin-top:10px}
-
+.box-set-new {
+    border: 1px solid #30ad8b;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    margin: 30px 10px;
+    height: 130px;
+	width: 200px
+}.box-set-new h1 {
+    font-size: 20px;
+    margin-bottom: 0px;
+    font-weight: 500;
+    margin-top: 30px;
+    color: #30ad8b;
+    line-height: 15px;
+    text-align: center;
+}
+	.box-set-inner{
+		padding: 0;
+	}
+	.box-set-inner h2 {
+    background: url(images/img1.png) no-repeat;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-position: bottom;
+    background-size: cover;
+}
+	span.box-text-1 {
+    text-align: left;
+    float: left;
+    width: 100%;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+}
+	span.box-text-2 {
+    text-align: right;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    padding-right: 5px;
+    line-height: 20px;
+}
+	.box-set-img{
+		position: absolute;
+		margin-top: -45px;
+	}
+	.btn-1{
+		background: #ccc;
+		 border-radius: 15px 15px 0 0;
+    color: #fff !important;
+    padding: 5px 15px;
+    margin-top: 10px;
+	}
+	.btn-2 {
+    background: #30ad8b;
+    border-radius: 15px 15px 0 0;
+    color: #fff !important;
+    padding: 5px 15px;
+    margin-top: 10px;
+}
+	.box-set-new a {
+    color: #011b16;
+    text-decoration: none;
+    font-size: 14px;
+    width: auto !important;
+    margin: 0;
+    padding: 5px 30px;
+}
+	.bot-btn{
+		position: absolute;
+		bottom: -10px;
+		left: 0;
+		right: 0;
+	}
+	.box-set-img img{
+		width:75px;
+	}
 @media(max-width:767px) {
-.box-set{width:75%}
+
+	.box-set-new{
+		width: inherit;
+	}
 }
 </style>
 <script>
@@ -49,41 +99,83 @@ function startTrading() {
     document.formsend.phone.focus();
 }
 </script>
-<div class="box-set">
-<img src="images/ap-1.png"  alt="img"/>
-<h1>Ethereum</h1>
-<h5><i class="fa fa-rupee"></i> <?php if($response->prices->ETH !=""){ echo $response->prices->ETH; $_SESSION['ETH'] = $response->prices->ETH; }else{echo $_SESSION['ETH']; } //ETH/INR ?></h5>
-<a href="javascript:void(0);" class="btn-2" onclick="startTrading();">Start Trading</a>
-</div>
-
-<div class="box-set">
-<img src="images/ap-2.png"  alt="img"/>
-
-<h1>Bitcoin</h1>
-<h5><i class="fa fa-rupee"></i> <?php if($response->prices->BTC !=""){ echo $response->prices->BTC; $_SESSION['BTC'] = $response->prices->BTC; }else{echo $_SESSION['BTC']; } //BTC/INR ?></h5>
-<a class="btn-1">Coming up</a>
-</div>
-
-<div class="box-set">
-<img src="images/ap-3.png" alt="img" />
-
-<h1>Bitcoin Cash</h1>
-<h5><i class="fa fa-rupee"></i> <?php if($response->prices->BCH !=""){ echo $response->prices->BCH; $_SESSION['BCH'] = $response->prices->BCH; }else{echo $_SESSION['BCH']; } //BCH/INR ?></h5>
-<a class="btn-1">Coming up</a>
-</div>
-
-<div class="box-set">
-<img src="images/ap-4.png" alt="img" />
-
-<h1>Ripple</h1>
-<h5><i class="fa fa-rupee"></i> <?php if($response->prices->XRP !=""){ echo $response->prices->XRP; $_SESSION['XRP'] = $response->prices->XRP; }else{echo $_SESSION['XRP']; } //XRP/INR ?></h5>
-<a class="btn-1">Coming up</a>
-</div>
-
-<div class="box-set">
-<img src="images/ap-5.png" alt="img" />
-
-<h1>Litecoin</h1>
-<h5><i class="fa fa-rupee"></i> <?php if($response->prices->LTC !=""){ echo $response->prices->LTC; $_SESSION['LTC'] = $response->prices->LTC; }else{echo $_SESSION['LTC']; } //LTC/INR ?></h5>
-<a class="btn-1">Coming up</a>
-</div>
+<?php 
+if($Cryptoval->getPageSetTotalRows()>0) {
+    //while($cryptores = $Cryptoval->fetch()){ 
+	$cryptores = $Cryptoval->fetchAll();
+	//echo '<pre>';
+	//print_r($cryptores);
+?>
+<section class="box-set-out">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="col-md-2 col-sm-3 col-xs-12 box-set-new">
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-img">
+				<img src="images/ap-1.png" class="img-responsive center-block" alt="img">
+			</div>
+			<h1>Ethereum</h1>
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-inner text-left">
+				<h2><span class="box-text-1">Buy <br><i class="fa fa-rupee"></i>  <?php echo $cryptores[0]['buy_price'];?> </span><span class="box-text-2">Sell <br><i class="fa fa-rupee"></i> <?php echo $cryptores[0]['sell_price'];?></span></h2>
+			</div>
+			<div class="bot-btn">
+				<a href="javascript:void(0);" class="btn-2" onclick=" startTrading();">Start Trading</a>
+			</div>
+		</div>
+		
+		<div class="col-md-2 col-sm-3 col-xs-12 box-set-new">
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-img">
+				<img src="images/ap-2.png" class="img-responsive center-block" alt="img">
+			</div>
+			<h1>Bitcoin</h1>
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-inner text-left">
+				<h4 style="text-align: center;padding-top:10px"><i class="fa fa-rupee"></i></h4>
+			</div>
+			<div class="bot-btn">
+				<a class="btn-1">Coming Up</a>
+			</div>
+		</div>
+		
+		<div class="col-md-2 col-sm-3 col-xs-12 box-set-new">
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-img">
+				<img src="images/ap-3.png" class="img-responsive center-block" alt="img">
+			</div>
+			<h1>Bitcoin Cash</h1>
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-inner text-left">
+				<h4 style="text-align: center;padding-top:10px"><i class="fa fa-rupee"></i></h4>
+			</div>
+			<div class="bot-btn">
+				<a class="btn-1">Coming Up</a>
+			</div>
+		</div>
+		
+		<div class="col-md-2 col-sm-3 col-xs-12 box-set-new">
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-img">
+				<img src="images/ap-4.png" class="img-responsive center-block" alt="img">
+			</div>
+			<h1>Ripple</h1>
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-inner text-left">
+				<h4 style="text-align: center;padding-top:10px"><i class="fa fa-rupee"></i></h4>
+			</div>
+			<div class="bot-btn">
+				<a class="btn-1">Coming Up</a>
+			</div>
+		</div>
+		
+		<div class="col-md-2 col-sm-3 col-xs-12 box-set-new">
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-img">
+				<img src="images/ap-5.png" class="img-responsive center-block" alt="img">
+			</div>
+			<h1>Litecoin</h1>
+			<div class="col-md-12 col-sm-12 col-xs-12 box-set-inner text-left">
+				<h4 style="text-align: center;padding-top:10px"><i class="fa fa-rupee"></i></h4>
+			</div>
+			<div class="bot-btn">
+				<a class="btn-1">Coming Up</a>
+			</div>
+		</div>
+		
+	</div>
+</section>
+<?php
+//}
+}
+?>

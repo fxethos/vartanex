@@ -86,9 +86,9 @@ $selectUrl = basename($_SERVER["PHP_SELF"]);
                                 </li>
                                 <li <?php if($selectUrl == "announcement.php"){ ?> class="active" <?php } ?>><a href="announcement.php">News </a></li>
                                 <li class="dropdown <?php if($selectUrl == "trading-guide.php"){ ?>active<?php } ?> "><a class="dropdown-toggle" data-toggle="dropdown" href="trading-guide.php">Trader Guide </a>                                
-                                    <ul class="dropdown-menu dropdown-menu-1">
+                                    <ul class="dropdown-menu">
                                         <li <?php if($selectUrl == "trading-guide.php"){ ?> class="active" <?php } ?>><a href="trader-guide.php">Trading rules </a></li>
-                                        <li><a href="trader-guide.php#order-book">How to interpret the order book</a></li>
+                                        <!--<li><a href="trader-guide.php#order-book">How to interpret the order book</a></li>-->
                                         <li><a href="trader-guide.php#fees">Fee structure</a></li>
                                     </ul>
                                 </li>
