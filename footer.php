@@ -48,7 +48,7 @@
                     <div class="footer-copyright iq-pt-10">Copyright &copy; <?php echo date("Y"); ?> VartanEx. All Rights Reserved </div>
                 </div>
                 <div class="col-sm-4" style="text-align:center">
-                <div class="footer-copyright iq-pt-10"><a href="#" style="color:#fff; margin-right:10px; text-decoration:underline">Terms and Conditions</a> &nbsp;&nbsp;&nbsp; <a href="#" style="color:#fff; text-decoration:underline">Privacy Policy</a></div>
+                <div class="footer-copyright iq-pt-10"><a href="#" style="color:#fff; margin-right:10px; text-decoration:underline">Terms and Conditions</a> &nbsp;&nbsp;&nbsp; <a href="privacy-policy.php" style="color:#fff; text-decoration:underline">Privacy Policy</a></div>
                 </div>
                 <div class="col-sm-3">
                     <ul class="info-share">
