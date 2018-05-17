@@ -443,6 +443,10 @@ input.error, select.error{ border:2px solid #002720 !important; }
                     <div class="heading-title">
                         <h2 class="title iq-tw-6">The Best Place to Trade Ethereum</h2>
                         <div class="divider"></div>
+                        
+                        <div style="clear: both;"></div>
+                        <img src="images/feature-graphic.jpg" alt="feature-graphic" style="padding: 50px;"/>
+                        
                         <p style="font-size:16px">VartanEx takes pride in being India's most reliable, transparent and customer-friendly exchange for trading Ethereum at. We ensure easiest and fastest transactions, and we're always one click away from our customers.</p>
                     </div>
                 </div>

@@ -5,12 +5,12 @@
     </div>
     <div class="col-lg-6">
         <h3 class="green-head" style="border:0">Company Profile</h3>
-        <p style="color:#000; text-align:justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <ul class="list-1" style="margin:10px 0 15px">
+        <p style="color:#000; text-align:justify">VartanEx presents itself as the most secure and most transparent exchange you have ever traded with. We have put in place a completely straightforward order book to uphold transparency, so you know the actual supply and demand before you ever place an order. And we use the best-in-class security features to ensure that your funds, trades and information are safe.</p>
+        <!--<ul class="list-1" style="margin:10px 0 15px">
             <li style="color:#000">What is Bitcoin?</li>
             <li style="color:#000">Why should I use Bitcoin?</li>
         </ul>
-        <a href="company.php" class="button bt-green">Read More</a>
+        <a href="company.php" class="button bt-green">Read More</a>-->
     </div>
 </div>
 <div style="background:#f2f2f2; padding:35px 0; width:100%; float:left; margin:25px 0">
