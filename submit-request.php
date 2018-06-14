@@ -11,8 +11,8 @@
             if($data['success'])
             {
                 require_once dirname(__FILE__) .'/lib/swift/lib/swift_required.php';
-    			$from = 'contact@mcharts.in';
-    			$to = 'karthik@tradala.in';
+    			$from = $_REQUEST['email'];
+    			$to = 'hello@vartanex.com';
     			$subject = "VartanEx: Submit Request";
     			$mailbody = '<div id="content" class="radius">
     						<p>Dear Admin,<br />
@@ -33,12 +33,12 @@
         		$headers .= "Content-Type: text/html; charset=iso-8859-1\n";
                 //mail($to,$subject,$mailbody,$headers);        
     			$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-    			->setUsername('contact@mcharts.in')
-    			->setPassword('MT4Charts479#');
+    			->setUsername('hello@vartanex.com')
+    			->setPassword('Tradenithin123$');
     			$mailer = Swift_Mailer::newInstance($transport);
     			$message = Swift_Message::newInstance($subject)
     			->setContentType('text/html')
-    			->setFrom(array($from => 'VartanEx Support'))
+    			->setFrom(array($from => $_REQUEST['name']))
     			->setTo(array($to => 'VartanEx Support'))	
     			->setBody($mailbody);
     			$mailer->send($message);
